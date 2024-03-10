@@ -10,6 +10,7 @@ import 'package:task_manager/common/widgets/hieght_spacer.dart';
 import 'package:task_manager/common/widgets/reusable_text.dart';
 import 'package:task_manager/common/widgets/width_spacer.dart';
 import 'package:task_manager/todo/controllers/xpansion_provider.dart';
+import 'package:task_manager/todo/pages/add.dart';
 import 'package:task_manager/todo/widgets/todo_tile.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -54,7 +55,9 @@ class _HomePageState extends ConsumerState<HomePage>
                         borderRadius: BorderRadius.all(Radius.circular(9)),
                       ),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const AddTask()));
+                        },
                         child: const Icon(
                           Icons.add,
                           color: AppConst.kBkDark,

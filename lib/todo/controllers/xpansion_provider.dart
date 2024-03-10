@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
 part 'xpansion_provider.g.dart';
 
 @riverpod

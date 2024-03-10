@@ -23,7 +23,7 @@ class TestPage extends ConsumerWidget {
               onPressed: () {
                 ref.read(codeStateProvider.notifier).setStart("Hello Farsi");
               },
-              child: Text("Press Me"),
+              child:const Text("Press Me"),
             ),
           ],
         ),
