@@ -9,8 +9,10 @@ import 'package:task_manager/common/widgets/expansion_tile.dart';
 import 'package:task_manager/common/widgets/hieght_spacer.dart';
 import 'package:task_manager/common/widgets/reusable_text.dart';
 import 'package:task_manager/common/widgets/width_spacer.dart';
+import 'package:task_manager/todo/controllers/todo/todo_provider.dart';
 import 'package:task_manager/todo/controllers/xpansion_provider.dart';
 import 'package:task_manager/todo/pages/add.dart';
+import 'package:task_manager/todo/widgets/today_task.dart';
 import 'package:task_manager/todo/widgets/todo_tile.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -29,6 +31,8 @@ class _HomePageState extends ConsumerState<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(todoStateProvider.notifier).refresh();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -56,7 +60,10 @@ class _HomePageState extends ConsumerState<HomePage>
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const AddTask()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AddTask()));
                         },
                         child: const Icon(
                           Icons.add,
@@ -175,19 +182,9 @@ class _HomePageState extends ConsumerState<HomePage>
                     controller: tabController,
                     children: [
                       Container(
-                        color: AppConst.kBkLight,
-                        height: AppConst.kHieght * 0.3,
-                        child: ListView(
-                          children: [
-                            TodoTile(
-                              start: "03:00",
-                              end: "05:00",
-                              switcher:
-                                  Switch(value: true, onChanged: (value) {}),
-                            ),
-                          ],
-                        ),
-                      ),
+                          color: AppConst.kBkLight,
+                          height: AppConst.kHieght * 0.3,
+                          child: const TodayTask()),
                       Container(
                         color: AppConst.kBkLight,
                         height: AppConst.kHieght * 0.3,
