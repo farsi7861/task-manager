@@ -5,16 +5,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:task_manager/common/utils/constant.dart';
 import 'package:task_manager/common/widgets/appstyle.dart';
 import 'package:task_manager/common/widgets/custom_text.dart';
-import 'package:task_manager/common/widgets/expansion_tile.dart';
 import 'package:task_manager/common/widgets/hieght_spacer.dart';
 import 'package:task_manager/common/widgets/reusable_text.dart';
 import 'package:task_manager/common/widgets/width_spacer.dart';
 import 'package:task_manager/todo/controllers/todo/todo_provider.dart';
-import 'package:task_manager/todo/controllers/xpansion_provider.dart';
 import 'package:task_manager/todo/pages/add.dart';
+import 'package:task_manager/todo/widgets/completed_task.dart';
 import 'package:task_manager/todo/widgets/day_after_tomorrow.dart';
 import 'package:task_manager/todo/widgets/today_task.dart';
-import 'package:task_manager/todo/widgets/todo_tile.dart';
 import 'package:task_manager/todo/widgets/tomorrow_list.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -190,6 +188,7 @@ class _HomePageState extends ConsumerState<HomePage>
                       Container(
                         color: AppConst.kBkLight,
                         height: AppConst.kHieght * 0.3,
+                        child: const CompletedTasks(),
                       )
                     ],
                   ),
